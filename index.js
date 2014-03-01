@@ -18,10 +18,6 @@
         this.expires.setMinutes(this.expires.getMinutes()+1);
         console.log('this.expires:'+this.expires);
     }
-    /*User.prototype.updateToken=function(token){
-     this.token = token;
-     this.refresh();
-     }*/
     User.prototype.isValid=function(){
         if(this.token==undefined){
             return false;
@@ -29,7 +25,7 @@
             return (this.expires.getTime()>=(new Date()).getTime());
         }
     }
-    /* cleans users array from expired users */
+    /* Garbage collection -> removes expired users */
     setInterval(function(){
         users = users.filter(function(item){
             return item.isValid();
