@@ -6,32 +6,43 @@
      * @type {Array}
      */
     var users = [];
+    var expirationTime = 1;
 
     function User(token, username){
         this.token = token;
-        this.expires = null;
+        this.refreshed = null;
+        //this.expires = null;
         this.username = username;
         this.refresh();
     }
     User.prototype.refresh = function() {
-        this.expires = new Date();
+        this.refreshed = new Date();
+        /*this.expires = new Date();
         this.expires.setMinutes(this.expires.getMinutes()+1);
-        console.log('this.expires:'+this.expires);
+        console.log('this.expires:'+this.expires);*/
     }
     User.prototype.isValid=function(){
         if(this.token==undefined){
             return false;
         }else{
-            return (this.expires.getTime()>=(new Date()).getTime());
+            var exp = new Date(this.refreshed.getTime());
+            exp.setMinutes(exp.getMinutes()+expirationTime);
+
+            // fast clicking may give wrong time?
+
+            console.log('expires at ' + exp);
+
+            return (exp.getTime()>=(new Date()).getTime());
         }
     }
-    /* Garbage collection -> removes expired users */
+    /* Garbage collection -> removes expired users in every 10 minutes*/
     setInterval(function(){
         users = users.filter(function(item){
             return item.isValid();
         });
+        console.log("users");
         console.log(users);
-    }, 60*1000);
+    }, 10*60*1000);
 
     var findUserByToken = function (token){
         var result = users.slice(0);
@@ -82,10 +93,20 @@
     module.exports.isTokenValid = function(token) {
         var user = findUserByToken(token);
         if( user!=undefined ){
-            user.refresh();
-            return user.isValid();
+            var isValid = user.isValid();
+            if(isValid){
+                user.refresh();
+            }
+            return isValid;
         }
         return false;
+    }
+    /**
+     *
+     * @param time in minutes
+     */
+    module.exports.setExpirationTime = function(time) {
+        expirationTime = time;
     }
     /**
      * Finds user from valid users based on token
