@@ -1,0 +1,29 @@
+{
+  "name": "api-token",
+  "version": "0.1.0",
+  "description": "api-token =========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hopeatussi/api-token.git"
+  },
+  "keywords": [
+    "api",
+    "token",
+    "session",
+    "rest"
+  ],
+  "author": "Eetu Tuomala <hopeatussi@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "bb7431f3580bef12251b427a860e682690a71a97",
+  "bugs": {
+    "url": "https://github.com/hopeatussi/api-token/issues"
+  },
+  "dependencies": {
+    "uuid": "~1.4.1"
+  }
+}
