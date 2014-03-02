@@ -18,23 +18,29 @@
         this.username = username;
         this.refresh();
     }
+
+    /**
+     * Refreshes token expiration time
+     */
     User.prototype.refresh = function() {
         this.refreshed = new Date();
         /*this.expires = new Date();
         this.expires.setMinutes(this.expires.getMinutes()+1);
         console.log('this.expires:'+this.expires);*/
     }
+
+    /**
+     * Checks if users token is valid
+     * @returns {boolean}
+     */
     User.prototype.isValid=function(){
         if(this.token==undefined){
             return false;
         }else{
             var exp = new Date(this.refreshed.getTime());
             exp.setMinutes(exp.getMinutes()+expirationTime);
-
-            // fast clicking may give wrong time?
-
+            // fast clicking may give wrong time somehow?
             console.log('expires at ' + exp);
-
             return (exp.getTime()>=(new Date()).getTime());
         }
     }
@@ -47,6 +53,11 @@
         console.log(users);
     }, 10*60*1000 /* debug 5*1000*/);
 
+    /**
+     * Finds user by token
+     * @param token
+     * @returns {User}
+     */
     var findUserByToken = function (token){
         var result = users.slice(0);
         result = result.filter(function(item){
@@ -55,6 +66,11 @@
         return result[0];
     }
 
+    /**
+     * Finds user by username
+     * @param username
+     * @returns {User}
+     */
     var findUserByUsername = function (username){
         var result = users.slice(0);
         result = result.filter(function(item){
@@ -63,6 +79,10 @@
         return result[0];
     }
 
+    /**
+     * Removes user
+     * @param username
+     */
     var removeUserByUsername = function(username){
         users = users.filter(function(item){
             return (item.username != username);
@@ -81,6 +101,7 @@
         users.push(user);
         return user;
     }
+
     /**
      * Removes user from pool
      * @param username
@@ -88,6 +109,7 @@
     module.exports.removeUser = function(username) {
         removeUserByUsername(username);
     }
+
     /**
      * Checks if token is still valid
      * @param token
@@ -104,13 +126,15 @@
         }
         return false;
     }
+
     /**
-     *
+     * Sets new expiration time for token
      * @param time in minutes
      */
     module.exports.setExpirationTime = function(time) {
         expirationTime = time;
     }
+
     /**
      * Finds user from valid users based on token
      * @param token
@@ -119,6 +143,7 @@
     module.exports.findUserByToken = function(token) {
         return findUserByToken(token);
     }
+
     /**
      * Finds user from valid users based on username
      * @param username
