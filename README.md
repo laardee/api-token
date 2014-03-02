@@ -11,7 +11,9 @@ Simple module for Node.js that can be used e.g. for REST api session management.
 
 ## Usage
 
-expressjs
+### Node.js server
+
+**expressjs**
 
 ```javascript
 var apiToken        = require('api-token');
@@ -28,7 +30,7 @@ app.all('/api/*', function(req, res, next){
         /* if token is valid continue */
         next();
     }else{
-        /* if token is not valid send unauthorized http status code to client */
+        /* if token is not valid send unauthorized http statuscode to client */
         res.send(401);
     }
 });
@@ -47,6 +49,15 @@ app.post('/api/authenticate', function(req, res){
     }
 });
 ```
+
+### Client
+
+**jQuery**
+
+```javascript
+----
+```
+
 
 
 ## Release History
