@@ -59,7 +59,6 @@ app.post('/api/authenticate', function(req, res){
 ```
 
 
-
 ## Release History
 
 * 0.1.0 Initial release
