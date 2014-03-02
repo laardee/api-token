@@ -16,7 +16,7 @@ Simple module for Node.js that can be used e.g. for REST api session management.
 **setup api-token**
 
 ```javascript
-var apiToken        = require('api-token');
+var apiToken = require('api-token');
 /* set expiration time to 2 minutes */
 apiToken.setExpirationTime(2);
 ```
