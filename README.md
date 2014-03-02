@@ -14,13 +14,21 @@ Simple module for Node.js that can be used e.g. for REST api session management.
 expressjs
 
 ```javascript
+var apiToken        = require('api-token');
+/* set expiration time to 2 minutes */
+apiToken.setExpirationTime(2);
+```
+
+```javascript
 app.all('/api/*', function(req, res, next){
-    console.log('call:'+req.url);
     if(req.url === '/api/authenticate'){
+        /* token is not needed when authenticating */
         next();
     }else if(apiToken.isTokenValid(req.get('API-Token'))){
+        /* if token is valid continue */
         next();
     }else{
+        /* if token is not valid send unauthorized http status code to client */
         res.send(401);
     }
 });
@@ -28,11 +36,14 @@ app.all('/api/*', function(req, res, next){
 
 ```javascript
 app.post('/api/authenticate', function(req, res){
-    if(req.body.password!='bar'){
-        apiToken.removeUser(req.body.username);
+    var authenticated = false;
+    /* do your authentication tricks */
+    if(!authenticated){
         res.send(401);
     }else{
-        res.send(200,{'token':apiToken.addUser(req.body.username).token});
+        var user = apiToken.addUser(req.body.username);
+        /* send token back to client */
+        res.send(200,{'token':user.token});
     }
 });
 ```
