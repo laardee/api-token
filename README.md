@@ -13,13 +13,15 @@ Simple module for Node.js that can be used e.g. for REST api session management.
 
 ### Node.js server
 
-**expressjs**
+**setup api-token**
 
 ```javascript
 var apiToken        = require('api-token');
 /* set expiration time to 2 minutes */
 apiToken.setExpirationTime(2);
 ```
+
+**expressjs**
 
 ```javascript
 app.all('/api/*', function(req, res, next){
