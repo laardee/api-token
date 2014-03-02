@@ -1,13 +1,16 @@
 (function() {
 
     var uuid = require('uuid');
-    /**
-     *  Users array
-     * @type {Array}
-     */
+
     var users = [];
     var expirationTime = 1;
 
+    /**
+     * User object
+     * @param token
+     * @param username
+     * @constructor
+     */
     function User(token, username){
         this.token = token;
         this.refreshed = null;
@@ -42,7 +45,7 @@
         });
         console.log("users");
         console.log(users);
-    }, 10*60*1000);
+    }, 10*60*1000 /* debug 5*1000*/);
 
     var findUserByToken = function (token){
         var result = users.slice(0);
@@ -67,7 +70,7 @@
     }
 
     /**
-     * Add user to session
+     * Add user to pool
      * @param token
      * @param username
      * @returns {User}
@@ -79,14 +82,14 @@
         return user;
     }
     /**
-     * Removes user from session
+     * Removes user from pool
      * @param username
      */
     module.exports.removeUser = function(username) {
         removeUserByUsername(username);
     }
     /**
-     * Checks if token is still valid in session
+     * Checks if token is still valid
      * @param token
      * @returns {boolean}
      */
