@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "description": "api-token =========",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/hopeatussi/api-token.git"
+    "url": "git://github.com/laardee/api-token.git"
   },
   "keywords": [
     "api",
@@ -21,7 +19,7 @@
   "readmeFilename": "README.md",
   "gitHead": "bb7431f3580bef12251b427a860e682690a71a97",
   "bugs": {
-    "url": "https://github.com/hopeatussi/api-token/issues"
+    "url": "https://github.com/laardee/api-token/issues"
   },
   "dependencies": {
     "uuid": "~1.4.1"
