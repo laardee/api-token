@@ -7,7 +7,7 @@ Simple module for Node.js that can be used e.g. for REST api session management.
 
 ## Installation
 
-@todo npm install api-token --save
+npm install api-token --save
 
 ## Example project
 
