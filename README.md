@@ -103,15 +103,6 @@ http.createServer(function (req, res) {
 }).listen(1337, '127.0.0.1');
 ```
 
-### Client
-
-**jQuery**
-
-```javascript
-----
-```
-
-
 ## Release History
 
 * 0.1.0 Initial release
