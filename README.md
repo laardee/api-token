@@ -3,18 +3,12 @@ api-token
 
 Simple module for Node.js that can be used e.g. for REST api session management.
 
-##Work in progress, not tested
-
 ## Installation
 
 ```
 npm install api-token --save
 ```
 
-## Example project
-
-https://github.com/laardee/api-token-expressjs-demo
- 
 ## Usage
 
 ### Node.js server
@@ -28,6 +22,8 @@ apiToken.setExpirationTime(2);
 ```
 
 **expressjs**
+
+Example how to use api-token module in Express application. For more details see [#Example project]
 
 ```javascript
 app.all('/api/*', function(req, res, next){
@@ -59,6 +55,8 @@ app.post('/api/authenticate', function(req, res){
 ```
 
 **plain http server**
+
+Example how to use api-token with http server.
 
 ```javascript
 http.createServer(function (req, res) {
@@ -104,6 +102,13 @@ http.createServer(function (req, res) {
     }
 }).listen(1337, '127.0.0.1');
 ```
+
+
+### Example project
+
+Example application which demonstrates the use of the module.
+https://github.com/laardee/api-token-expressjs-demo
+ 
 
 ## Release History
 
