@@ -23,7 +23,7 @@ apiToken.setExpirationTime(2);
 
 **expressjs**
 
-Example how to use api-token module in Express application. For more details see [Example project](#Example project)
+Example how to use api-token module in Express application. For more details see [Example project](#example-project).
 
 
 ```javascript
