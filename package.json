@@ -1,7 +1,7 @@
 {
   "name": "api-token",
   "version": "0.1.0",
-  "description": "api-token =========",
+  "description": "api-token",
   "main": "index.js",
   "scripts": {},
   "repository": {
@@ -11,8 +11,7 @@
   "keywords": [
     "api",
     "token",
-    "session",
-    "rest"
+    "session"
   ],
   "author": "Eetu Tuomala <hopeatussi@gmail.com>",
   "license": "MIT",
