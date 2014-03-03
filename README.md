@@ -9,6 +9,10 @@ Simple module for Node.js that can be used e.g. for REST api session management.
 
 @todo npm install api-token --save
 
+## Example project
+
+https://github.com/laardee/api-token-expressjs-demo
+ 
 ## Usage
 
 ### Node.js server
