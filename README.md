@@ -113,5 +113,6 @@ https://github.com/laardee/api-token-expressjs-demo
 
 ## Release History
 
+* 0.1.2 Added generated id and toPublic method to User
 * 0.1.1 Minor changes in package.json
 * 0.1.0 Initial release

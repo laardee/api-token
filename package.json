@@ -1,6 +1,6 @@
 {
   "name": "api-token",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "api-token",
   "main": "index.js",
   "scripts": {},

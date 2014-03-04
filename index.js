@@ -12,7 +12,8 @@
      * @constructor
      */
     function User(token, username){
-        this.token = token;
+        this.id = uuid.v4();
+		this.token = token;
         this.refreshed = null;
         //this.expires = null;
         this.username = username;
@@ -43,6 +44,13 @@
             console.log('expires at ' + exp);
             return (exp.getTime()>=(new Date()).getTime());
         }
+    }
+	
+	User.prototype.toPublic = function(){
+        var result = {};
+        result.username = this.username;
+        result.id = this.id;
+        return result;
     }
     /* Garbage collection -> removes expired users in every 10 minutes*/
     setInterval(function(){
