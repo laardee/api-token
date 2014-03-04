@@ -47,7 +47,7 @@
     }
 
     /**
-     * Converts public version of the user, without token and expiration date
+     * Returns public version of the user, without token and expiration date
      * @returns {{}}
      */
     User.prototype.toPublic = function(){
