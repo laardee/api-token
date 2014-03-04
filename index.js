@@ -45,8 +45,12 @@
             return (exp.getTime()>=(new Date()).getTime());
         }
     }
-	
-	User.prototype.toPublic = function(){
+
+    /**
+     * Converts public version of the user, without token and expiration date
+     * @returns {{}}
+     */
+    User.prototype.toPublic = function(){
         var result = {};
         result.username = this.username;
         result.id = this.id;
